@@ -1,0 +1,2 @@
+JobTest5::Application.config.secret_key_base = 'b495a691532e16947f761ca43fbb9e239cbcd841bf35da54a67789d2b9ae65d42da8257cc2a65114a8511b965411db9e5b75cd1d5a4e8c039768983dc3187e45'
+JobTest5::Application.config.session_store :cookie_store, key: '_job-test-5_session'

@@ -1,0 +1,20 @@
+html
+  head
+    title Twitter Stream Map
+
+    meta name="description" content="Twitter Stream Map"
+    meta name="keywords" content="twitter, stream, map"
+    meta name="author" content="Shogun"
+    meta charset="utf-8"
+
+    = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    meta http-equiv="X-UA-Compatible" content="IE=edge"
+
+    = csrf_meta_tags
+
+  body
+    = yield
+    script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false" charset="utf8"
+    = javascript_include_tag "application", "data-turbolinks-track" => true

@@ -1,0 +1,33 @@
+- if !@error then
+  - if @tweets.to_a.present?
+    ul.list-unstyled
+      - @tweets.to_a.each do |tweet|
+        li.tweet
+          = link_to(tweet.user_profile, target: :blank, class: "avatar pull-left") do
+            = image_tag tweet.user_avatar, alt: tweet.user, class: "img-rounded"
+
+          .tweet-inner
+            h5 = tweet.formatted_text(self)
+
+            - if tweet.image.present?
+              = link_to tweet.image["expanded_url"], target: :blank, class: :image do
+                = image_tag(tweet.image["media_url_https"], alt: tweet.text, class: "img-rounded")
+
+            h6
+              ' By
+              strong> #{tweet.user_name}
+              ' (#{link_to("@" + tweet.user, tweet.user_profile, target: :blank)}),
+              = link_to(time_ago_in_words(tweet.timestamp) + " ago", tweet.url, target: :blank, class: :tweet)
+
+              a@view-in-map.map-marker.pull-right href="#" *tweet.formatted_location rel="tooltip" title="View in the map"
+                i.icon-map-marker
+
+    - if @has_more
+      .more
+        a@load-more href="#" rel="tooltip" title="Load more tweets." *next_query
+          i.icon-plus
+          ' Load more ...
+  - elsif params[:max_id].blank?
+    @system-status.alert-warning No results found.
+- else
+  @system-status.alert-danger = @error

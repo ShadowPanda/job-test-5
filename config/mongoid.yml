@@ -4,6 +4,5 @@ development: &main
       database: job-test-5
       hosts:
         - localhost:27017
-
 production:
   <<: *main

@@ -1,7 +1,15 @@
 .row
-  .col-md-3
+  .col-md-4
     .input-container
       i.icon-search
-      input type="text" placeholder="Enter your coordinates to continue."
-  .col-md-9.map-container
+      input type="text" placeholder="Enter your coordinates to continue." value=params[:query]
+    @tweets-container.tweets-container
+      @system-status.info
+        strong Instruction
+        ul
+          li Use decimal notation (e.g: 12.34,45.67) specifying first latitude and then longitude.
+          li Append a radius (in Km), e.g: '@ 10'. The default radius is 50km.
+          li Append "with media" to show only posts with media.
+
+  .col-md-8.map-container
     #map

@@ -2,12 +2,14 @@
 $font-family-sans-serif:  Lato, "Helvetica Neue", Helvetica, Arial, sans-serif !default;
 $font-family-base: Ubuntu, "Helvetica Neue", Helvetica, Arial, sans-serif !default;
 
+@import "compass/css3/border-radius";
 @import "twitter/bootstrap";
 @import "font-awesome";
 
 html, body{
   width: 100%;
   height: 100%;
+  background-color: #F0F0F0;
 }
 
 .tooltip-inner{
@@ -27,11 +29,12 @@ body > .row{
 
   i{
     float: left;
-    color: #CCC;
+    color: #AAA;
     margin: 0.3rem 1rem 0 0;
   }
 
   input{
+    background-color: transparent;
     width: 80%;
     border: 0;
 
@@ -51,4 +54,105 @@ body > .row{
     width: 100%;
     height: 100%;
   }
+}
+
+.tweets-container{
+  margin: 1rem 0 0 0;
+  padding: 0 0.5rem 0.5rem 0.5rem;
+  height: 80%;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  .info{
+    color: #AAA;
+
+    ul{
+      padding-left: 1.5rem;
+    }
+  }
+
+  .loading, .more{
+    text-align: center;
+    margin: 1rem 0;
+    font-size: 2rem;
+    color: #AAA;
+
+    i{
+      font-size: 3rem;
+      position: relative;
+      margin: 0 1rem 0 -1rem;
+
+      &.icon-spinner{
+        top: 0.2rem;
+      }
+
+      &.icon-plus{
+        top: 0.45rem;
+      }
+    }
+
+    a{
+      &:hover{
+        text-decoration: none;
+      }
+    }
+  }
+
+  li.tweet{
+    background-color: white;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem 0;
+    border: 1px solid #EEE;
+    @include border-radius(5px);
+
+    a.avatar{
+      margin: 0.5rem 1rem 0 0;
+
+      img{
+        width: 48px;
+        height: 48px;
+      }
+    }
+
+    .tweet-inner{
+      margin-left: 58px;
+    }
+    h6{
+      color: #CCC;
+
+      strong{
+        color: #444;
+      }
+
+      a.tweet{
+        color: #888;
+      }
+    }
+
+    a.map-marker{
+      font-size: 2rem;
+      margin-top: -0.4rem;
+
+      &:hover{
+        text-decoration: none;
+      }
+    }
+
+    a.image{
+      text-align: center;
+      display: inline-block;
+      padding: 0.5rem 3rem;
+      width: 100%;
+
+      img{
+        max-width: 100%;
+      }
+    }
+  }
+}
+
+.alert-danger, .alert-warning{
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 0;
+  @include border-radius(5px);
 }

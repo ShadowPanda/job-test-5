@@ -1,1 +1,1 @@
-Lazier.load!
+Lazier.load!(:object, :boolean, :string, :datetime, :math, :pathname)
